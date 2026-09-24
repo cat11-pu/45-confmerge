@@ -1,0 +1,12 @@
+{
+  "policy": "append",
+  "nested_kept": true,
+  "provenance_invariant": true,
+  "layer_contrib": {"base": ["listen", "upstreams"], "region": ["timeout"], "prod": ["retries"]},
+  "schema": {"listen": "int", "timeout": "int", "retries": "int", "upstreams": "list"},
+  "layers": {
+    "base": {"listen": 80, "upstreams": ["a", "b"], "nested": {"x": 1, "y": 2}},
+    "region": {"timeout": 30, "nested": {"y": 9}},
+    "prod": {"retries": "three", "upstreams": ["c"]}
+  }
+}
